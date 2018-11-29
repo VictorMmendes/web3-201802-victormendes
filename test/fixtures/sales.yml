@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  unit_price: 1.5
+  total_price: 1.5
+  date: MyString
+  employee: one
+  client: one
+  item: one
+
+two:
+  amount: 1
+  unit_price: 1.5
+  total_price: 1.5
+  date: MyString
+  employee: two
+  client: two
+  item: two

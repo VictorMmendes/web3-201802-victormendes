@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'application'%>
+<%= stylesheet_link_tag "sales" %>
+
+<%= simple_form_for(@purchase) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col">
+        <%= f.association :item, :as => :collection_select, collection: @items %>
+        <% @items.each do |item| %>
+          <input type="hidden" id="<%= item.id %>" name="<%= item.unit_price %>">
+        <% end %>
+      </div>
+      <div class="col">
+        <label class="form-control-label integer optional" for="price">
+          Cost Price
+        </label>
+        <input class="form-control integer optional just_read" type="text" id="price" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :amount %>
+      </div>
+      <div class="col">
+        <label class="form-control-label integer optional" for="total_price">
+          Total Price
+        </label>
+        <input class="form-control integer optional just_read" type="text" id="total_price" readonly>
+      </div>
+    </div>
+    <%= f.association :employee %>
+    <%= f.association :provider %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

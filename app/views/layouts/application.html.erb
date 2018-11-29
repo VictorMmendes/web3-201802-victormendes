@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Padaria</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="">Baking Bread</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <%= link_to root_path, class: 'nav-link' do %>
+            <span class="navbar-toggler-icon">
+          <% end %>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sales', sales_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Purchases', purchases_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Clients', clients_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Employees', employees_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Providers', providers_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Items', items_path, class: 'nav-link' %>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-0">
+            <li class="nav-item">
+              <% if user_signed_in? %>
+              <%= current_user.email %>
+                <%= link_to destroy_user_session_path, class: 'btn btn-info', method: :delete do %>
+                  Logout
+                  <span class="glyphicon glyphicon-off"></span>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, class: 'btn btn-success' do %>
+                  Login
+                  <span class="glyphicon glyphicon-user"></span>
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= msg %>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

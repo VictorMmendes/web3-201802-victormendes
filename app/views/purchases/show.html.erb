@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<h1>Purchase</h1>
+<p>
+  <strong>Amount:</strong>
+  <%= @purchase.amount %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  R$ <%= @purchase.unit_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  R$ <%= @purchase.total_price %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @purchase.date %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @purchase.employee.name %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @purchase.provider.name %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @purchase.item.name %>
+</p>
+
+<%= link_to 'Back', purchases_path %> |
+<%= link_to 'Destroy', @purchase, method: :delete, data: { confirm: 'Are you sure?' } %>

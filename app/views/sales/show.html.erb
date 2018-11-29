@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<h1>Sale</h1>
+<p>
+  <strong>Amount:</strong>
+  <%= @sale.amount %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  R$ <%= @sale.unit_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  R$ <%= @sale.total_price %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sale.date %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @sale.employee.name %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @sale.client.name %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @sale.item.name %>
+</p>
+
+<%= link_to 'Back', sales_path %> |
+<%= link_to 'Destroy', @sale, method: :delete, data: { confirm: 'Are you sure?' } %>

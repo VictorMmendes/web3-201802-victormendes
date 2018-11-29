@@ -1,0 +1,57 @@
+<%= javascript_include_tag 'application'%>
+<%= stylesheet_link_tag "sales" %>
+
+<%= simple_form_for(@sale) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col form-group select required sale_item">
+      	<label class="form-control-label select required" for="onChoose">
+      		Item
+      		<abbr title="required">*</abbr>
+      	</label>
+      	<select class="form-control select required" id="onChoose" name="sale[item_id]">
+          <option value=""></option>
+            <% unless @items.nil? %>
+              <%= @items.each do |i| %>
+        		    <option value="<%= i.id %>" name="<%= i.storage %>" id="<%= i.unit_price %>"><%= i.name %></option>
+              <% end %>
+            <% end %>
+      	</select>
+      </div>
+      <div class="col form-group integer optional">
+      	<label class="form-control-label integer optional" for="available_amount">
+        		Cost Price
+      	</label>
+      	<input class="form-control integer optional just_read" type="text" id="cost_price" readonly>
+      </div>
+      <div class="col">
+      	<label class="form-control-label integer optional" for="available_amount">
+      		Storage Available
+      	</label>
+      	<input class="form-control integer optional just_read" type="text" id="available_amount" readonly>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <%= f.input :amount, input_html: { min: '0', max: '0', step: '1', :id => "deny_keyboard" } %>
+      </div>
+      <div class="col">
+        <%= f.input :unit_price %>
+      </div>
+      <div class="col">
+        <label class="form-control-label integer optional" for="total_price_sale">
+          Total Price
+        </label>
+        <input class="form-control integer optional just_read" type="text" id="total_price_sale" readonly>
+      </div>
+    </div>
+    <%= f.association :employee %>
+    <%= f.association :client %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
