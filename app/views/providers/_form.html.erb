@@ -12,7 +12,7 @@
     <%= f.input :register_date, end_year: Date.today.year - 90, start_year: Date.today.year %>
     <%= f.input :address %>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions float-right">
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>
