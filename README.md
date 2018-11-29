@@ -1,24 +1,35 @@
-# README
+# Projeto final de WEB 3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Padaria e Confeitaria
 
-Things you may want to cover:
+É um sistema pensado para padarias ou confeitarias que fornecem produtos para empresas.
 
-* Ruby version
+### Funcionalidades
+* Cadastrar Produtos
+* Cadastrar Pessoas (Física/Jurídica)
+* Realizar vendas
+* Realizar Compras
+* Calcular entradas e saídas para analisar lucros
 
-* System dependencies
+### Features
+* Histórico de frequência
 
-* Configuration
+### Pré-requisitos
 
-* Database creation
+* **Ruby instalado** >= Versão 2.*.
+* **Rails instalado**  >= Versão 4.*.
 
-* Database initialization
+### Instalando
+* Clone o repositório na pasta desejada do seu computador
+* Navegue até a raíz da aplicação e execute os seguintes comandos: 
+* - bundle
+* - rake db:migrate
+* - rails server
+* **Pronto!** - Sua aplicação já está limpa e configurada para uso no estabelecimento
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Authors
 
-* Deployment instructions
+* **Victor Mendes** - *Trabalho inicial*
 
-* ...
+Veja também a lista de [contributors](https://github.com/VictorMmendes/web3-201802-victormendes/graphs/contributors) que participam nesse projeto.
